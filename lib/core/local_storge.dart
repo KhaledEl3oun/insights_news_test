@@ -18,6 +18,6 @@ class appLocal {
 
   static Future<dynamic> getCacheData(String key) async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.get(key);
+    return prefs.get(key);
   }
 }

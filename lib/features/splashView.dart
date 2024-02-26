@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:insights_news/core/local_storge.dart';
+import 'package:insights_news/features/home/view/navBar.dart';
 import 'package:insights_news/core/navigator.dart';
 import 'package:insights_news/core/utils/appColors.dart';
 import 'package:insights_news/core/utils/text_style.dart';
-import 'package:insights_news/features/home/homeView.dart';
+import 'package:insights_news/features/home/view/homeView.dart';
 import 'package:insights_news/features/uploadView.dart';
 
 class splashView extends StatefulWidget {
@@ -20,12 +21,13 @@ class _splashViewState extends State<splashView> {
   void initState() {
     super.initState();
     appLocal.getCacheData(appLocal.isUpload_key).then((value) {
-          isUpload = value?? false;
-        });
+      isUpload = value ?? false;
+    });
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        routingWithReplaceMent(context,isUpload? homeView() :const uploadView());
+        routingWithReplaceMent(
+            context, isUpload ? navBar() : const uploadView());
       },
     );
   }
