@@ -1,3 +1,3 @@
-# insights_news
+Insights News
 
 A new Flutter project.
